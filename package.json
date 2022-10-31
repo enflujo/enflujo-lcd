@@ -1,6 +1,6 @@
 {
   "name": "@enflujo/lcd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Librería para controlar LCDs con ic2",
   "main": "libreria/principal/index.js",
   "typings": "libreria/principal/index.d.ts",

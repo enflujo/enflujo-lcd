@@ -27,7 +27,7 @@ const PARPADEO_PRENDIDO = RS;
 
 const LINEAS = [D7, 0xc0, 0x94, 0xd4];
 
-export default class LCD_Sensual {
+export class LCD_Sensual {
   #filas: number;
   #columnas: number;
   #numeroBus: number;
