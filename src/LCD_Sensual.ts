@@ -38,7 +38,7 @@ export class LCD_Sensual {
   #estadoLuz: number;
   parpadearCursor: boolean;
 
-  constructor(filas = 16, columnas = 2, numeroBus = 1, direccion = 0x27) {
+  constructor(filas = 2, columnas = 16, numeroBus = 1, direccion = 0x27) {
     this.#numeroBus = numeroBus;
     this.#direccion = direccion;
     this.#filas = filas;
@@ -109,7 +109,9 @@ export class LCD_Sensual {
 
     // Asegurarse que lo que se imprima es texto.
     let textoParaImprimir = texto.toString();
-    const disponiblesX = columna ? this.#columnas - columna : this.#columnas;
+
+    const disponiblesX = columna ? this.#columnas - columna + 1 : this.#columnas;
+
     if (textoParaImprimir.length > disponiblesX) {
       textoParaImprimir = textoParaImprimir.substring(0, disponiblesX);
     }
