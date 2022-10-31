@@ -5,7 +5,7 @@
   "main": "libreria/principal/index.js",
   "typings": "libreria/principal/index.d.ts",
   "module": "libreria/modulos/index.js",
-  "repository": "https://github.com/enflujo/lcd",
+  "repository": "https://github.com/enflujo/enflujo-lcd",
   "license": "MIT",
   "keywords": [
     "i2c",
