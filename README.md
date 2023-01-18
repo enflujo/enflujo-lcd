@@ -239,3 +239,13 @@ async function inicio() {
 
 inicio();
 ```
+
+## Publicar actualización a NPM
+
+```bash
+yarn build
+```
+
+```bash
+npm run publicar
+```
