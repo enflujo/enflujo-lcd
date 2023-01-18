@@ -33,8 +33,8 @@ export const esperar = async (tiempo: number): Promise<void> => {
  * @returns  {[string]} Array con códigos hex.
  */
 export const binarioAHex = (codigoBinaro: string) => {
-  const lineas = codigoBinaro.split(",");
+  const lineas = codigoBinaro.split(',');
   return lineas.map((linea) => {
-    return "0x" + parseInt(linea.replace(/\n +/g, ""), 2).toString(16);
+    return '0x' + parseInt(linea.replace(/\n +/g, ''), 2).toString(16);
   });
 };

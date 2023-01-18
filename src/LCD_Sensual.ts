@@ -5,8 +5,8 @@
  * Librería "LiquidCrystal" para Arduino: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library/blob/master/LiquidCrystal_I2C.cpp
  */
 
-import i2c, { I2CBus } from "i2c-bus";
-import dormir from "sleep";
+import i2c, { I2CBus } from 'i2c-bus';
+import dormir from 'sleep';
 const { usleep } = dormir;
 
 const CHAR = 1;
@@ -90,9 +90,7 @@ export class LCD_Sensual {
       if (linea <= this.#filas) {
         await this.#escribir(LINEAS[linea - 1], CMD);
       } else {
-        throw new Error(
-          `La linea ${linea} supera las definidas (${this.#filas})`
-        );
+        throw new Error(`La linea ${linea} supera las definidas (${this.#filas})`);
       }
     }
 
@@ -101,9 +99,7 @@ export class LCD_Sensual {
       if (linea <= this.#filas) {
         await this.#ubicarCursor(columna - 1, linea - 1);
       } else {
-        throw new Error(
-          `La linea ${linea} supera las definidas (${this.#filas})`
-        );
+        throw new Error(`La linea ${linea} supera las definidas (${this.#filas})`);
       }
     }
 
@@ -123,7 +119,7 @@ export class LCD_Sensual {
         await this.#escribir(caracter, CHAR);
       } catch (error) {
         console.error(error);
-        throw new Error();
+        // throw new Error();
       }
     }
   }
@@ -168,7 +164,7 @@ export class LCD_Sensual {
       await this.#escribir(D7, CMD);
     } catch (error) {
       console.error(error);
-      throw new Error("Problema creando caracter especial.");
+      throw new Error('Problema creando caracter especial.');
     }
   }
 
@@ -182,10 +178,7 @@ export class LCD_Sensual {
   async cursor() {
     this.#cursor = true;
     const parpadeando = this.parpadearCursor ? PARPADEO_PRENDIDO : APAGAR;
-    await this.#escribir(
-      CONTROL_PANTALLA | PRENDER_PANTALLA | CURSOR_PRENDIDO | parpadeando,
-      CMD
-    );
+    await this.#escribir(CONTROL_PANTALLA | PRENDER_PANTALLA | CURSOR_PRENDIDO | parpadeando, CMD);
   }
 
   async apagarCursor() {
@@ -211,9 +204,7 @@ export class LCD_Sensual {
 
   #revisarPantallaIniciada() {
     if (!this.#pantallaIniciada) {
-      throw new Error(
-        "Antes de usar la pantalla debe iniciarla con el método iniciar()"
-      );
+      throw new Error('Antes de usar la pantalla debe iniciarla con el método iniciar()');
     }
   }
 
@@ -238,8 +229,8 @@ export class LCD_Sensual {
       await this.#escribir4(x, comando);
       await this.#escribir4(x << 4, comando);
     } catch (error) {
-      console.error(error);
-      throw new Error("Problema escribiendo a la i2c");
+      console.error('Problema escribiendo a la i2c', error);
+      // throw new Error("Problema escribiendo a la i2c");
     }
   }
 
